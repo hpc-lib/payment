@@ -77,14 +77,14 @@
 直接在命令行下安装：
 
 ```bash
-composer require "riverslei/payment:*"
+composer require "dlyun/payment:*"
 ```
 
 通过项目配置文件方式安装：
 
 ```yaml
 "require": {
-    "riverslei/payment": "*"
+    "dlyun/payment": "*"
 }
 ```
 
