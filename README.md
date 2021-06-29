@@ -77,14 +77,14 @@
 直接在命令行下安装：
 
 ```bash
-composer require "dlyun/payment:*"
+composer require "dlyun_hpc/payment:*"
 ```
 
 通过项目配置文件方式安装：
 
 ```yaml
 "require": {
-    "dlyun/payment": "*"
+    "dlyun_hpc/payment": "*"
 }
 ```
 
