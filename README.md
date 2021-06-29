@@ -12,8 +12,6 @@
 [![Latest development][ico-version-dev]][link-packagist]
 [![Monthly installs][ico-downloads-monthly]][link-downloads]
 
-老版本文档：http://helei112g.github.io/payment
-
 新版本文档如
 -----
 
