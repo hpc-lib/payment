@@ -77,6 +77,13 @@ class AppCharge extends AliBaseObject implements IGatewayRequest
             'disable_pay_channels' => implode(self::$config->get('limit_pay', ''), ','),
             'ext_user_info'        => $requestParams['ext_user_info'] ?? '',
             'business_params'      => $requestParams['business_params'] ?? '',
+            'agreement_sign_params' => isset($requestParams['agreement_sign_params']) ? [
+                'personal_product_code' => 'GENERAL_WITHHOLDING_P' ,
+                'sign_scene'            => 'INDUSTRY|GAME_CHARGE' ,
+                'external_logon_id'     => $requestParams['agreement_sign_params']['external_logon_id'] ?? '',
+                'access_params'         => ['channel' => 'ALIPAYAPP'],
+                'sign_notify_url'       => $requestParams['agreement_sign_params']['sign_notify_url'] ?? '',
+            ] : '' ,
         ];
         $bizContent = ArrayUtil::paraFilter($bizContent);
 
