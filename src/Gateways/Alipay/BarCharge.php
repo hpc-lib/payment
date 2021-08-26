@@ -89,13 +89,13 @@ class BarCharge extends AliBaseObject implements IGatewayRequest
             }
 
             $content = $retArr['alipay_trade_pay_response'];
-            $retArr = [
+            $tmpArr = [
                 40004=> '支付失败，余额不足',
                 20000=> '支付失败，系统错误',
                 10003=> '等待支付',
             ];
             if ($content['code'] !== self::REQ_SUC) {
-                throw new GatewayException($retArr[$content['code']] ?? $content['msg'], Payment::SIGN_ERR, $content);
+                throw new GatewayException($tmpArr[$content['code']] ?? $content['msg'], Payment::SIGN_ERR, $content);
             }
 
             $signFlag = $this->verifySign($content, $retArr['sign']);
