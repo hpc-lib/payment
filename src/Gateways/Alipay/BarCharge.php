@@ -43,9 +43,9 @@ class BarCharge extends AliBaseObject implements IGatewayRequest
 
         $bizContent = [
             'out_trade_no'         => $requestParams['trade_no'] ?? '',
-            'scene'                => $requestParams['scene'] ?? 'bar_code',
+//            'scene'                => $requestParams['scene'] ?? 'bar_code',
             'auth_code'            => $requestParams['auth_code'] ?? '',
-            'product_code'         => $requestParams['product_code'] ?? '',
+            'product_code'         => $requestParams['product_code'] ?? 'GENERAL_WITHHOLDING',
             'subject'              => $requestParams['subject'] ?? '',
             'buyer_id'             => $requestParams['buyer_id'] ?? '',
             'seller_id'            => $requestParams['seller_id'] ?? '',
@@ -65,6 +65,7 @@ class BarCharge extends AliBaseObject implements IGatewayRequest
             'promo_params'         => $requestParams['promo_params'] ?? '',
             'advance_payment_type' => $requestParams['advance_payment_type'] ?? '',
             //'is_async_pay'         => $requestParams['is_async_pay'] ?? false,
+            'agreement_params'     => $requestParams['agreement_params'],
         ];
         $bizContent = ArrayUtil::paraFilter($bizContent);
 
