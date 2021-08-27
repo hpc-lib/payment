@@ -56,7 +56,7 @@ class Rescind extends AliBaseObject implements IGatewayRequest
             if (json_last_error() !== JSON_ERROR_NONE) {
                 throw new GatewayException(sprintf('format transfer data get error, [%s]', json_last_error_msg()), Payment::FORMAT_DATA_ERR, ['raw' => $ret]);
             }
-
+            $content = $retArr['alipay_user_agreement_unsign_response'];
             if ($content['code'] !== self::REQ_SUC) {
                 throw new GatewayException(sprintf('request get failed, msg[%s], sub_msg[%s]', $content['msg'], $content['sub_msg']), Payment::SIGN_ERR, $content);
             }

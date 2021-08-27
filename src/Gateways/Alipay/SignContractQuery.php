@@ -14,6 +14,7 @@ namespace Payment\Gateways\Alipay;
 use Payment\Contracts\IGatewayRequest;
 use Payment\Exceptions\GatewayException;
 use Payment\Helpers\ArrayUtil;
+use Payment\Payment;
 
 /**
  * 支付宝签约查询
