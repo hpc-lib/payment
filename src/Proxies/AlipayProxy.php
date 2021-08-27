@@ -26,6 +26,7 @@ use Payment\Gateways\Alipay\Refund;
 use Payment\Gateways\Alipay\RefundQuery;
 use Payment\Gateways\Alipay\Rescind;
 use Payment\Gateways\Alipay\SdkSignContract;
+use Payment\Gateways\Alipay\SignContractQuery;
 use Payment\Gateways\Alipay\TradeQuery;
 use Payment\Gateways\Alipay\Transfer;
 use Payment\Gateways\Alipay\TransferQuery;
@@ -266,6 +267,24 @@ class AlipayProxy extends BaseObject implements IPayProxy, IQueryProxy, ITransfe
     {
         try {
             $obj = new SdkSignContract();
+
+            return $obj->request($requestParams);
+        } catch (GatewayException $e) {
+            throw $e;
+        }
+    }
+
+    /**
+     * 签约查询
+     * User: zmm
+     * DateTime: 2021/8/26 16:53
+     * @return mixed
+     * @throws GatewayException
+     */
+    public function signContractQuery(array $requestParams)
+    {
+        try {
+            $obj = new SignContractQuery();
 
             return $obj->request($requestParams);
         } catch (GatewayException $e) {
