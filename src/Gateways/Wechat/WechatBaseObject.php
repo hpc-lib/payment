@@ -204,10 +204,11 @@ abstract class WechatBaseObject extends BaseObject
     {
         try {
             $retSign = $retData['sign'];
-            $values  = ArrayUtil::removeKeys($retData, ['sign', 'sign_type']);
+            $values  = ArrayUtil::removeKeys($retData, ['sign']);
             $values  = ArrayUtil::paraFilter($values);
             $values  = ArrayUtil::arraySort($values);
-            $signStr = ArrayUtil::createLinkstring($values);
+            $preStr = http_build_query($values);
+            $signStr = urldecode($preStr);
         } catch (\Exception $e) {
             throw new GatewayException('wechat verify sign generate str get error', Payment::SIGN_ERR);
         }
